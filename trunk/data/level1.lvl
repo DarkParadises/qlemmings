@@ -1,0 +1,157 @@
+/*
+..........E...........
+*....................*
+**********************
+......................
+......**************..
+......................
+..**************......
+......................
+...../**************..
+..../**...............
+*.....................
+*\..................**
+**\.................X*
+***\..............****
+****\................*
+**********************
+*/
+
+SetSkillNumbers 0 2 3 4 0
+
+CreateCells 22 17
+
+CreateEntrance 10 3 10 0
+CreateExit 7 20 13 
+
+CreateRock 0 1
+CreateRock 21 1
+
+CreateRock 0 2
+CreateRock 1 2 
+CreateRock 2 2
+CreateRock 3 2
+CreateRock 4 2
+CreateRock 5 2
+CreateRock 6 2
+CreateRock 7 2
+CreateRock 8 2
+CreateRock 9 2
+CreateRock 10 2
+CreateRock 11 2
+CreateRock 12 2
+CreateRock 13 2
+CreateRock 14 2
+CreateRock 15 2
+CreateRock 16 2
+CreateRock 17 2
+CreateRock 18 2
+CreateRock 19 2
+CreateRock 20 2
+CreateRock 21 2
+
+CreateRock 6 4
+CreateRock 7 4
+CreateRock 8 4
+CreateRock 9 4
+CreateRock 10 4
+CreateRock 11 4
+CreateRock 12 4
+CreateRock 13 4
+CreateRock 14 4
+CreateRock 15 4
+CreateRock 16 4
+CreateRock 17 4
+CreateRock 18 4
+CreateRock 19 4
+
+CreateRock 2 6
+CreateRock 3 6
+CreateRock 4 6
+CreateRock 5 6
+CreateRock 6 6
+CreateRock 7 6
+CreateRock 8 6
+CreateRock 9 6
+CreateRock 10 6
+CreateRock 11 6
+CreateRock 12 6
+CreateRock 13 6
+CreateRock 14 6
+CreateRock 15 6
+
+CreateRock 6 8
+CreateRock 7 8
+CreateRock 8 8
+CreateRock 9 8
+CreateRock 10 8
+CreateRock 11 8
+CreateRock 12 8
+CreateRock 13 8
+CreateRock 14 8
+CreateRock 15 8
+CreateRock 16 8
+CreateRock 17 8
+CreateRock 18 8
+CreateRock 19 8
+
+CreateRock 5 9
+CreateRock 6 9
+
+CreateAslopeRock east 5 8
+CreateAslopeRock east 4 9
+CreateAslopeRock east 3 10
+
+CreateRock 0 11
+CreateRock 0 12
+CreateRock 0 13
+CreateRock 0 14
+CreateRock 0 15
+
+CreateRock 1 13
+CreateRock 1 14
+CreateRock 1 15
+
+CreateRock 2 14
+CreateRock 2 15
+
+CreateRock 3 15
+
+CreateAslopeRock west 1 12
+CreateAslopeRock west 2 13
+CreateAslopeRock west 3 14
+CreateAslopeRock west 4 15
+
+CreateRock 0 16
+CreateRock 1 16
+CreateRock 2 16
+CreateRock 3 16
+CreateRock 4 16
+CreateRock 5 16
+CreateRock 6 16
+CreateRock 7 16
+CreateRock 8 16
+CreateRock 9 16
+CreateRock 10 16
+CreateRock 11 16
+CreateRock 12 16
+CreateRock 13 16
+CreateRock 14 16
+CreateRock 15 16
+CreateRock 16 16
+CreateRock 17 16
+CreateRock 18 16
+CreateRock 19 16
+CreateRock 20 16
+CreateRock 21 16
+
+CreateRock 21 12
+CreateRock 21 13
+CreateRock 21 14
+CreateRock 21 15
+
+CreateRock 20 12
+
+CreateRock 18 14
+CreateRock 19 14
+CreateRock 20 14
