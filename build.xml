@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<project name="qlemmings" default="package" basedir=".">
+
+<property name="src.dir" value="src" />
+<property name="build.dir" value="build" />
+<property name="data.dir" value="data" />
+<property name="bin.dir" value="bin" />
+<property name="bin.file" value="qlemmings.jar" />
+
+<path id="sourcepath">
+	<pathelement location="${src.dir}" />
+</path>
+
+<target name="clean" description="Cleans up compiled classes">
+	<echo message="Cleaning up..." />
+	<delete dir="${build.dir}" />
+</target>
+
+<target name="copy-resources" description="Copies resources to build directory">
+	<echo message="Copying resource files..." />
+	<mkdir dir="${build.dir}" />
+	<copy todir="${build.dir}">
+		<fileset dir="${data.dir}" includes="*.gif" />
+		<fileset dir="${data.dir}" includes="*.png" />
+		<fileset dir="${data.dir}" includes="*.lvl" />
+	</copy>
+</target>
+
+<target name="compile" depends="copy-resources" description="Compiles everything">
+	<javac destdir="${build.dir}">
+		<src>
+			<path refid="sourcepath" />
+		</src>
+	</javac>
+</target>
+
+<target name="package" depends="compile" description="Builds jar package">
+	<jar jarfile="${bin.dir}/${bin.file}">
+		<manifest>
+			<attribute name="Main-Class" value="Qlemmings" />
+		</manifest>
+		<fileset dir="${build.dir}" includes="**" />
+	</jar>
+</target>
+
+<target name="run" depends="package" description="Builds, packages and runs project">
+	<echo message="Running jar file..." />
+	<java jar="${bin.dir}/${bin.file}" fork="true" />
+</target>
+
+</project>

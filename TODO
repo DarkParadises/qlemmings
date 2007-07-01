@@ -1,0 +1,33 @@
+-----refactoring----------------------------------
+
+(*) ant-tal buildelni
+(*) dosos sorvegek megszuntetese
+(*) forraskod konyvtarstrukturajat kitalalni
+( ) package-be rakni mindent
+( ) felesleges kommenteket kitorolni
+( ) konstansokat gyujtoosztajba mindent
+( ) konstansok letisztitasa, enumerator ahol lehet
+( ) tipusos kollekciokat hasznalni
+( ) sajat exceptiont kesziteni
+( ) jatek megnyeresenek kezelese szebben
+( ) grafikat letisztitani
+( ) resourceok jarba csomagolasat letisztitani
+( ) normalis gui
+( ) junit tesztek irasa
+
+-----features-------------------------------------
+
+( ) fontos infok kepernyore irasa
+( ) lemmingre kattintas
+( ) lemming vilagit ha rajta van a kurzor
+( ) timelimit
+( ) score
+( ) highscore
+( ) animacio
+( ) palyak level-packokba helyezese
+
+-----far-features---------------------------------
+
+( ) leveleditor
+( ) sajat formatum helyett atteres xml-re
+( ) swing gui helyett sajat
