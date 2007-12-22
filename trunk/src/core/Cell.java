@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class Cell {
 	private ArrayList containedObjects;
-	private Cell[] neighbours;
+	private Map<Direction,Cell> neighbours;
 	private CellDrawer drawer;
 	
 	public CellDrawer getDrawer() {
@@ -21,7 +21,7 @@ public class Cell {
 	 */
 	public Cell() {
 		containedObjects = new ArrayList();
-		neighbours = new Cell[8];
+		neighbours = new Map();
 		drawer = new CellDrawer(this);
 	}
 
@@ -34,36 +34,39 @@ public class Cell {
 	 * @param direction Az irany, amerrol a mezot kivanjunk megkapni.
 	 * @return A szabad cella, vagy null, ha nincs szabad.
 	 */
-	public Cell getAvailableCellAt(int direction) {
-		Cell below = neighbours[Direction.South];
+	public Cell getAvailableCellAt(Direction direction) {
+		Cell below = neighbours.get(Direction.SOUTH);
 		Cell next;
 
-		if((neighbours[direction] != null) && (neighbours[direction].isSlope(direction))) {
-			int nextPos = (direction == Direction.East)?
-				Direction.NorthEast:Direction.NorthWest;
-			Cell nextCell = neighbours[nextPos];
+		if((neighbours.get(direction) != null) && (neighbours.get(direction).isSlope(direction))) {
+			Direction nextPos = (direction == Direction.EAST)?
+				Direction.NORTH_EAST:Direction.NORTH_WEST;
+			Cell nextCell = neighbours.get(nextPos);
 			if((nextCell != null) && (!nextCell.isBlocked(direction)))
-				return neighbours[nextPos];
+				return neighbours.get(nextPos);
 		}
 
-		if((below != null) && (below.isSlope(Direction.getOpposite(direction)))) {
-			int nextPos = (direction == Direction.East)?
-				Direction.SouthEast:Direction.SouthWest;
-			next = neighbours[nextPos];
+		if((below != null) && (below.isSlope(direction.getOpposite()))) {
+			Direction nextPos = (direction == Direction.EAST)?
+				Direction.SOUTH_EAST:Direction.SOUTH_WEST;
+			next = neighbours.get(nextPos);
 		} else {
-			next = neighbours[direction];
+			next = neighbours.get(direction);
 		}
+
 		if((next != null) && (!next.isBlocked(direction))) {
 			return next;
 		}
+		
 		if((next != null) && (next.isSlope(direction))) {
-			int nextPos = (direction == Direction.East)?
-				Direction.NorthEast:Direction.NorthWest;
+			Direction nextPos = (direction == Direction.EAST)?
+				Direction.NORHT_EAST:Direction.NORTH_WEST;
 			next = neighbours[nextPos];
 			if((next != null) && (!next.isBlocked(direction))) {
 				return next;
 			}
 		}
+		
 		return null;
 	}
 
@@ -78,7 +81,7 @@ public class Cell {
 	public boolean isDestroyable() {
 		for(Iterator i = containedObjects.iterator();i.hasNext();) {
 			WorldObject obj = (WorldObject)i.next();
-			if(!obj.isAttributeTrue(Constants.DESTROYABLE_KEY))
+			if(!obj.isAttributeTrue(Constants.CollectionKey.DESTROYABLE))
 				return false;
 		}
 		return true;
@@ -92,10 +95,10 @@ public class Cell {
 	 * @param direction Az irany, amerre a keresett lejto nez
 	 * @return Igazzal ter vissza ha van lejto, hamissal ha nincs
 	 */
-	public boolean isSlope(int direction) {
+	public boolean isSlope(Direction direction) {
 		for(Iterator i = containedObjects.iterator();i.hasNext();) {
 			WorldObject obj = (WorldObject)i.next();
-			int slopeDirection = obj.getAttribute(Constants.SLOPE_KEY);
+			Direction slopeDirection = obj.getAttribute(Constants.CollectionKey.SLOPE);
 			if(slopeDirection == direction)
 				return true;
 		}
